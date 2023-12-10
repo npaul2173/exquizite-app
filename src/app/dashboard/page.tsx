@@ -1,11 +1,7 @@
 import { SidebarExample } from "@/components/sidebar";
 import { TopBar } from "@/components/topBar";
-import { Button } from "@/components/ui/button";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import { Separator } from "@/components/ui/separator";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { PlusCircledIcon } from "@radix-ui/react-icons";
 
+import { Search } from "./components/search";
 export default function Page() {
   return (
     <div className="flex flex-col w-full min-h-screen">
@@ -13,9 +9,11 @@ export default function Page() {
       <main className="pt-[60px]">
         <div className="border-t">
           <div className="bg-background">
-            <div className="grid lg:grid-cols-5">
+            <div className="grid lg:grid-cols-7 max-w-[400]">
               <SidebarExample className="hidden lg:block" />
-              <div className="col-span-3 lg:col-span-4 lg:border-l"></div>
+              <div className="col-span-3 lg:col-span-4">
+                <Search />
+              </div>
             </div>
           </div>
         </div>

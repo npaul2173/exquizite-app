@@ -15,10 +15,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ModeToggle } from "@/components/ui/themeToggle";
+import { DialogDemo } from "./joinQuiz";
 export const Profile = () => {
   return (
     <div className="flex flex-row space-x-4">
-      <Button>Join a quiz</Button>
+      <DialogDemo />
+      <ModeToggle />
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Avatar>
@@ -77,7 +79,6 @@ export const Profile = () => {
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
-      <ModeToggle />
     </div>
   );
 };
