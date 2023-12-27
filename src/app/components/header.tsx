@@ -2,11 +2,13 @@
 import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/ui/themeToggle";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
 function HeaderSection() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const route = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,7 +34,9 @@ function HeaderSection() {
 
       <div className="flex gap-x-4">
         <ModeToggle />
-        <Button variant={"outline"}>Login</Button>
+        <Button variant={"outline"} onClick={() => route.push("/dashboard")}>
+          Login
+        </Button>
         <Button>Register</Button>
       </div>
     </header>
