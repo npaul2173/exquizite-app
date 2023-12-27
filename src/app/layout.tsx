@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
+import Head from "next/head";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -21,6 +22,24 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/public/assets/favicon/favicon.ico" />
+        <link
+          rel="icon"
+          href="/public/assets/favicon/favicon.ico"
+          type="image/x-icon"
+        />
+        <link
+          rel="icon"
+          sizes="16x16"
+          href="/public//assets/favicon/favicon-16x16.png"
+        />
+        <link
+          rel="icon"
+          sizes="32x32"
+          href="/public/assets/favicon/favicon-32x32.png"
+        />
+      </head>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
