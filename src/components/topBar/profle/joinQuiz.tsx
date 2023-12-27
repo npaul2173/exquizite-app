@@ -15,8 +15,9 @@ export function DialogDemo() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button>Join a quiz</Button>
+        <Button variant={"outline"}>Join a quiz</Button>
       </DialogTrigger>
+
       <DialogContent className="sm:max-w-[425px] pt-[30px]">
         <DialogHeader>
           <DialogTitle>Join quiz</DialogTitle>

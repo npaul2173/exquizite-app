@@ -12,6 +12,13 @@ export function SidebarExample({ className }: SidebarProps) {
       <div className="space-y-4 py-4">
         <div className="px-3 py-2">
           <div className="space-y-1">
+            <Button
+              variant="default"
+              className="w-full justify-start space-x-2"
+            >
+              <Globe2 size={16} /> <p className="bold">Create</p>
+            </Button>
+
             <Button variant="ghost" className="w-full justify-start space-x-2">
               <Globe2 size={16} /> <p>Explore</p>
             </Button>
