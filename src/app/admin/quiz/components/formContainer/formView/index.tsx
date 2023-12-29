@@ -1,19 +1,68 @@
 import { FormInputField } from "@/components/formFields/FormInputField";
-import { useForm, useFormContext } from "react-hook-form";
-import { FormDataTypes, FormSchema } from "../schema";
+import { FormNumberInputField } from "@/components/formFields/FormNumberInputField";
+import Image from "next/image";
+import { useState } from "react";
+import { useFormContext } from "react-hook-form";
+import { useFilePicker } from "use-file-picker";
+import { FormDataTypes } from "../schema";
+
+import {
+  FileAmountLimitValidator,
+  FileSizeValidator,
+  FileTypeValidator,
+} from "use-file-picker/validators";
 
 export function FormView() {
   const { control } = useFormContext<FormDataTypes>(); // retrieve all hook methods
+  const [coverImage, setCoverImage] = useState(null);
 
-  // const { control } = useForm<FormDataTypes>();
+  const { openFilePicker, filesContent, loading, errors } = useFilePicker({
+    readAs: "DataURL",
+    accept: "image/*",
+    multiple: true,
+    validators: [
+      new FileAmountLimitValidator({ max: 1 }),
+      new FileTypeValidator(["jpg", "png"]),
+      new FileSizeValidator({ maxFileSize: 50 * 1024 * 1024 /* 50 MB */ }),
+    ],
+  });
+  console.log("filesContent---> ", filesContent);
+
   return (
-    <div className="max-w-xl mx-auto">
-      {/* ... existing fields ... */}
-      <FormInputField name="title" control={control} />
+    <div className="max-w-xl mx-auto  space-y-8">
+      <button onClick={() => openFilePicker()}>Select files </button>
 
-      <FormInputField name="description" control={control} />
+      {/* {coverImage && (
+        <Image
+          src={URL.createObjectURL(coverImage)}
+          alt="Cover Image"
+          width={480}
+          height={270} // Maintain 16:9 aspect ratio
+          className="ml-4 object-cover rounded-lg"
+          layout="fill"
+        />
+      )} */}
 
-      <FormInputField name="duration" control={control} />
+      <FormInputField
+        name="title"
+        control={control}
+        placeHolder="Enter title"
+        label="Title"
+      />
+
+      <FormInputField
+        name="description"
+        label="Description"
+        control={control}
+        placeHolder="Enter description"
+      />
+
+      <FormNumberInputField
+        label="Duration( In minutes)"
+        name="duration"
+        control={control}
+        placeHolder="Enter duration"
+      />
 
       {/* <label htmlFor="coverImage" className="block font-semibold text-lg mb-2">
         Cover Image:
@@ -28,42 +77,6 @@ export function FormView() {
         // }
         className="w-full border rounded p-2 mb-4"
       /> */}
-
-      {/* <label htmlFor="description" className="block font-semibold text-lg mb-2">
-        Description:
-      </label>
-      <textarea
-        id="description"
-        name="description"
-        value={quizDetails.description}
-        // onChange={handleChange}
-        className="w-full border rounded p-2 mb-4"
-      /> */}
-
-      {/* <label htmlFor="duration" className="block font-semibold text-lg mb-2">
-        Duration (minutes):
-      </label>
-      <input
-        type="number"
-        id="duration"
-        name="duration"
-        value={quizDetails.duration}
-        // onChange={handleChange}
-        className="w-full border rounded p-2 mb-4"
-        min="1"
-      /> */}
-
-      {/* <label htmlFor="isPublished" className="block font-semibold text-lg mb-2">
-        Publish Quiz:
-      </label>  */}
-
-      {/* <button
-        type="submit"
-        className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 disabled:bg-gray-400"
-        disabled={!Object.values(quizDetails).every((field) => !!field)}
-      >
-        Create Quiz
-      </button> */}
     </div>
   );
 }

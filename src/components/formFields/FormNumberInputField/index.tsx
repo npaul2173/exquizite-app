@@ -9,14 +9,14 @@ import {
 import { Input } from "@/components/ui/input";
 import { Control, useController } from "react-hook-form";
 
-type FormInputFieldProps = {
+type FormNumberInputFieldProps = {
   name: string;
   control: any;
   placeHolder?: string;
   label?: string;
 };
 
-export const FormInputField: React.FC<FormInputFieldProps> = ({
+export const FormNumberInputField: React.FC<FormNumberInputFieldProps> = ({
   name,
   control,
   label,
@@ -31,7 +31,12 @@ export const FormInputField: React.FC<FormInputFieldProps> = ({
           <FormItem>
             <FormLabel>{label}</FormLabel>
             <FormControl>
-              <Input placeholder={placeHolder} {...field} value={field.value} />
+              <Input
+                type="number"
+                placeholder={placeHolder}
+                {...field}
+                value={field.value}
+              />
             </FormControl>
             <FormMessage />
           </FormItem>
