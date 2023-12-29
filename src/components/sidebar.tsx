@@ -1,12 +1,16 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Globe2, Library } from "lucide-react";
 import React from "react";
-
+import { useRouter } from "next/navigation";
 interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
   // playlists: Playlist[]
 }
+
 export function SidebarExample({ className }: SidebarProps) {
+  const route = useRouter();
+
   return (
     <div className={cn("pb-12", className, " lg:border-r")}>
       <div className="space-y-4 py-4">
@@ -15,6 +19,7 @@ export function SidebarExample({ className }: SidebarProps) {
             <Button
               variant="default"
               className="w-full justify-start space-x-2"
+              onClick={() => route.push("/admin/quiz")}
             >
               <Globe2 size={16} /> <p className="bold">Create</p>
             </Button>
