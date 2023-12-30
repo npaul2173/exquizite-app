@@ -56,6 +56,14 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
       },
+      letterSpacing: {
+        tighter: "-0.05em", // Example custom spacing
+      },
+      fontSize: {
+        "text-5xl": "3rem", // Larger size
+        xsm: "0.65rem", // Example custom size
+        "text-7xl": "4rem", // Larger size
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -70,6 +78,10 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: 0 },
         },
+      },
+      boxShadow: {
+        "shadow-scroll":
+          "0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06)",
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
