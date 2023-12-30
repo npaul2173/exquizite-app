@@ -11,6 +11,8 @@ import {
   FileSizeValidator,
   FileTypeValidator,
 } from "use-file-picker/validators";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { TopicSelector } from "./Topic";
 
 export function FormView() {
   const { control } = useFormContext<FormDataTypes>(); // retrieve all hook methods
@@ -30,6 +32,15 @@ export function FormView() {
 
   return (
     <div className="max-w-xl mx-auto  space-y-8">
+      {/* <AspectRatio ratio={16 / 9} className="bg-muted">
+        <Image
+          src="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80"
+          alt="Photo by Drew Beamer"
+          fill
+          className="rounded-md object-cover"
+        />
+      </AspectRatio> */}
+
       <button onClick={() => openFilePicker()}>Select files </button>
 
       {/* {coverImage && (
@@ -42,7 +53,7 @@ export function FormView() {
           layout="fill"
         />
       )} */}
-
+      <TopicSelector />
       <FormInputField
         name="title"
         control={control}
