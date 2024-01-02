@@ -14,6 +14,7 @@ type FormInputFieldProps = {
   control: any;
   placeHolder?: string;
   label?: string;
+  type?: string;
 };
 
 export const FormInputField: React.FC<FormInputFieldProps> = ({
@@ -21,6 +22,7 @@ export const FormInputField: React.FC<FormInputFieldProps> = ({
   control,
   label,
   placeHolder,
+  type,
 }) => {
   return (
     <FormField
@@ -31,7 +33,12 @@ export const FormInputField: React.FC<FormInputFieldProps> = ({
           <FormItem>
             <FormLabel>{label}</FormLabel>
             <FormControl>
-              <Input placeholder={placeHolder} {...field} value={field.value} />
+              <Input
+                placeholder={placeHolder}
+                {...field}
+                value={field.value}
+                type={type}
+              />
             </FormControl>
             <FormMessage />
           </FormItem>
