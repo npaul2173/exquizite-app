@@ -18,7 +18,7 @@ export const FormSchema = z.object({
     ),
   firstName: z.string().min(1, { message: "First name is required" }),
   lastName: z.string().min(1, { message: "Last name is required" }),
-  dateOfBirth: z.date().refine(
+  dob: z.date().refine(
     (dob) => {
       const currentDate = new Date();
       return dob <= currentDate;

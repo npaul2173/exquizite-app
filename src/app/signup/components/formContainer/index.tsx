@@ -6,6 +6,8 @@ import { FormSchema } from "./scheme";
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import { FormView } from "./formView";
+import { useToast } from "@/components/ui/use-toast";
+import { useRouter } from "next/navigation";
 
 export function FormContainer() {
   const formMethods = useForm<z.infer<typeof FormSchema>>({
@@ -16,14 +18,24 @@ export function FormContainer() {
       password: "",
       firstName: "",
       lastName: "",
-      dateOfBirth: new Date(),
+      dob: new Date(),
     },
   });
 
   const { handleSubmit } = { ...formMethods };
+  const { toast } = useToast();
+  const route = useRouter();
 
   const onHandleSubmit = async (values: any) => {
     console.log("submit values", values);
+    toast({
+      title: "Account created",
+      description:
+        "You account is successfully created you can login to your account",
+    });
+    setTimeout(() => {
+      route.push("/login");
+    }, 2000);
   };
 
   return (

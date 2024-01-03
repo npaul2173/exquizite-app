@@ -1,12 +1,13 @@
 import { FormInputField } from "@/components/formFields/FormInputField";
 import { FormDataTypes } from "../scheme";
 import { useFormContext } from "react-hook-form";
+import { FormCalendarField } from "@/components/formFields/FormCalendarField";
 
 export function FormView() {
   const { control } = useFormContext<FormDataTypes>(); // retrieve all hook methods
   return (
-    <div className="grid w-full items-center gap-4">
-      <div className="flex flex-col space-y-1.5">
+    <div className="grid grid-cols-2 w-full items-center gap-4">
+      <div>
         <FormInputField
           name="userName"
           control={control}
@@ -14,7 +15,7 @@ export function FormView() {
           label="User Name"
         />
       </div>
-      <div className="flex flex-col space-y-1.5">
+      <div>
         <FormInputField
           name="email"
           control={control}
@@ -22,7 +23,7 @@ export function FormView() {
           label="Email"
         />
       </div>
-      <div className="flex flex-col space-y-1.5">
+      <div>
         <FormInputField
           name="password"
           control={control}
@@ -31,7 +32,7 @@ export function FormView() {
           type="password"
         />
       </div>
-      <div className="flex flex-col space-y-1.5">
+      <div>
         <FormInputField
           name="firstName"
           control={control}
@@ -39,7 +40,7 @@ export function FormView() {
           label="First Name"
         />
       </div>
-      <div className="flex flex-col space-y-1.5">
+      <div>
         <FormInputField
           name="lastName"
           control={control}
@@ -47,20 +48,9 @@ export function FormView() {
           label="Last Name"
         />
       </div>
-      {/* <div className="flex flex-col space-y-1.5">
-        <Label htmlFor="framework">Framework</Label>
-        <Select>
-          <SelectTrigger id="framework">
-            <SelectValue placeholder="Select" />
-          </SelectTrigger>
-          <SelectContent position="popper">
-            <SelectItem value="next">Next.js</SelectItem>
-            <SelectItem value="sveltekit">SvelteKit</SelectItem>
-            <SelectItem value="astro">Astro</SelectItem>
-            <SelectItem value="nuxt">Nuxt.js</SelectItem>
-          </SelectContent>
-        </Select>
-      </div> */}
+      <div>
+        <FormCalendarField name="dob" control={control} label="Date of birth" />
+      </div>
     </div>
   );
 }
