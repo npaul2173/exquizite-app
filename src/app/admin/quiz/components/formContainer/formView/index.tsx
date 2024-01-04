@@ -19,6 +19,7 @@ import { PlusIcon, SunIcon } from "@radix-ui/react-icons";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { FormTextarea } from "@/components/formFields/FormTextArea";
+import { SelectTags } from "./SelectTags";
 
 export function FormView() {
   const { control } = useFormContext<FormDataTypes>(); // retrieve all hook methods
@@ -68,7 +69,7 @@ export function FormView() {
 
       <FormTextarea
         name="description"
-        label="Description Long"
+        label="Description"
         control={control}
         placeHolder="Enter description"
       />
@@ -79,6 +80,7 @@ export function FormView() {
         control={control}
         placeHolder="Enter duration"
       />
+      <SelectTags />
     </div>
   );
 }
