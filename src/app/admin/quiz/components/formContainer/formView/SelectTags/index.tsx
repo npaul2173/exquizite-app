@@ -12,6 +12,10 @@ import {
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { techWords } from "./constants";
+import { useToast } from "@/components/ui/use-toast";
+import { useFormContext, useWatch } from "react-hook-form";
+import { FormDataTypes } from "../../schema";
+import { Badge } from "@/components/ui/badge";
 
 function searchWords(searchQuery: string) {
   return techWords.filter((word) => {
@@ -20,25 +24,41 @@ function searchWords(searchQuery: string) {
   });
 }
 
-export const SelectTags: React.FC = () => {
+type SelectTagsProps = {};
+export const SelectTags: React.FC<SelectTagsProps> = () => {
   const [tagsList, setTagsList] = useState<string[] | undefined>();
   const [textValue, setTextValue] = useState<string | undefined>();
   const [searchList, setSearchList] = useState<string[]>([]);
-  console.log(textValue);
+  const { toast } = useToast();
+  const { control, setValue } = useFormContext<FormDataTypes>(); // retrieve all hook methods
+  const watch = useWatch({ control });
 
   const onChooseSearchResult = (item: string) => {
-    if (tagsList?.includes(item)) setTagsList([...(tagsList || []), item]);
+    if (tagsList?.includes(item)) {
+      toast({
+        variant: "destructive",
+        title: "Tag already selected",
+      });
+    } else setTagsList([...(tagsList || []), item]);
   };
 
   const onRemove = (text: string) => {
     setTagsList(tagsList?.filter((item) => item !== text));
   };
 
-  console.log(tagsList);
+  console.log(watch);
 
   return (
     <div>
-      <Chip text={"React"} onRemove={() => {}} />
+      <div className="flex flex-row max-h-[200px] overflow-x-hidden flex-wrap">
+        {watch.tags?.map((item, index) => {
+          return (
+            <Badge variant={"secondary"} key={index}>
+              {item}
+            </Badge>
+          );
+        })}
+      </div>
       <Dialog>
         <DialogTrigger asChild>
           <Button variant="outline">Add/Edit Tags</Button>
@@ -54,9 +74,10 @@ export const SelectTags: React.FC = () => {
               placeholder="Add/Search tags"
               value={textValue}
               onChange={(event) => {
+                const isEmpty = !!!event.target.value.length;
                 setTextValue(event.target.value);
                 const data = searchWords(event.target.value);
-                setSearchList(data);
+                setSearchList(isEmpty ? [] : data);
               }}
               onKeyDown={(event) => {
                 if (event.key === "Enter" && !!textValue) {
@@ -65,7 +86,7 @@ export const SelectTags: React.FC = () => {
               }}
             />
 
-            <div className="max-h-[200px] overflow-y-scroll">
+            <div className="max-h-[200px] overflow-y-scroll overflow-x-hidden">
               {searchList?.map((item, index) => {
                 return (
                   <div
@@ -79,7 +100,7 @@ export const SelectTags: React.FC = () => {
               })}
             </div>
 
-            <div className="flex flex-row max-h-[200px] overflow-y-scroll">
+            <div className="flex flex-row max-h-[200px] overflow-x-hidden flex-wrap">
               {tagsList?.map((item, index) => {
                 return (
                   <Chip
@@ -92,7 +113,12 @@ export const SelectTags: React.FC = () => {
             </div>
           </div>
           <DialogFooter>
-            <Button type="submit">Save tags</Button>
+            <Button
+              type="submit"
+              onClick={() => setValue("tags", tagsList || [])}
+            >
+              Save tags
+            </Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
