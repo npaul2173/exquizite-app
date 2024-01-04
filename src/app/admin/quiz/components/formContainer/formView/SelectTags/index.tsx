@@ -16,7 +16,7 @@ import { Label } from "@/components/ui/label";
 export const SelectTags: React.FC = () => {
   return (
     <div>
-      <Chip>Badge</Chip>
+      <Chip text={"React"} />
       <Dialog>
         <DialogTrigger asChild>
           <Button variant="outline">Add/Edit Tags</Button>

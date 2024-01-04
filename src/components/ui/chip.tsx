@@ -2,9 +2,10 @@ import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
+import { Cross1Icon, PlusIcon } from "@radix-ui/react-icons";
 
 const badgeVariants = cva(
-  "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+  "inline-flex items-center rounded-full border px-3 py-2 space-x-2 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
   // {
   //   variants: {
   //     variant: {
@@ -25,10 +26,20 @@ const badgeVariants = cva(
 
 export interface ChipProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof badgeVariants> {}
+    VariantProps<typeof badgeVariants> {
+  text: string;
+  onRemove?: () => void;
+}
 
-function Chip({ className, ...props }: ChipProps) {
-  return <div className={cn(badgeVariants(), className)} {...props}></div>;
+function Chip({ className, onRemove, text, ...props }: ChipProps) {
+  return (
+    <div className={cn(badgeVariants(), className)} {...props}>
+      <p>{text}</p>
+      <div className="cursor-pointer" onClick={onRemove}>
+        <Cross1Icon />
+      </div>
+    </div>
+  );
 }
 
 export { Chip, badgeVariants };

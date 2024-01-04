@@ -20,17 +20,6 @@ export default function Page() {
               <SidebarExample className="hidden lg:block" />
               <div className="col-span-3 lg:col-span-4">
                 <Search />
-
-                <Select>
-                  <SelectTrigger className="w-[180px]">
-                    <SelectValue placeholder="Theme" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="light">Light</SelectItem>
-                    <SelectItem value="dark">Dark</SelectItem>
-                    <SelectItem value="system">System</SelectItem>
-                  </SelectContent>
-                </Select>
               </div>
             </div>
           </div>
