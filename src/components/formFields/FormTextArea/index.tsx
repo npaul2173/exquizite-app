@@ -5,22 +5,20 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
-type FormInputFieldProps = {
+type FormTextareaProps = {
   name: string;
   control: any;
   placeHolder?: string;
   label?: string;
-  type?: string;
 };
 
-export const FormInputField: React.FC<FormInputFieldProps> = ({
+export const FormTextarea: React.FC<FormTextareaProps> = ({
   name,
   control,
   label,
   placeHolder,
-  type,
 }) => {
   return (
     <FormField
@@ -31,11 +29,10 @@ export const FormInputField: React.FC<FormInputFieldProps> = ({
           <FormItem>
             <FormLabel>{label}</FormLabel>
             <FormControl>
-              <Input
+              <Textarea
                 placeholder={placeHolder}
                 {...field}
                 value={field.value}
-                type={type}
               />
             </FormControl>
             <FormMessage />

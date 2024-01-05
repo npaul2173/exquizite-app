@@ -2,6 +2,13 @@ import { SidebarExample } from "@/components/sidebar";
 import { TopBar } from "@/components/topBar";
 
 import { Search } from "./components/search";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 export default function Page() {
   return (
     <div className="flex flex-col w-full min-h-screen">
