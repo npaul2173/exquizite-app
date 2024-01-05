@@ -34,7 +34,7 @@ export function FormContainer() {
         "You account is successfully created you can login to your account",
     });
     setTimeout(() => {
-      route.push("/login");
+      route.push("/auth/login");
     }, 2000);
   };
 
