@@ -24,16 +24,21 @@ export function Sidebar({ className }: SidebarProps) {
             >
               <Globe2 size={16} /> <p className="bold">Create</p>
             </Button> */}
-            <Button variant="ghost" className="w-full justify-start space-x-2">
-              <LayoutDashboard size={16} /> <p>Dashboard</p>
-            </Button>
-            <Button variant="ghost" className="w-full justify-start space-x-2">
-              <BarChart2 size={16} /> <p>Analytics</p>
-            </Button>
 
             <Button variant="ghost" className="w-full justify-start space-x-2">
               <Globe2 size={16} /> <p>Explore</p>
             </Button>
+
+            <Button
+              variant="secondary"
+              className="w-full justify-start space-x-2"
+            >
+              <LayoutDashboard size={16} /> <p>Dashboard</p>
+            </Button>
+            <Button variant="ghost" className="w-full justify-start space-x-2">
+              <BarChart2 size={16} /> <p>Reports</p>
+            </Button>
+
             <Button variant="ghost" className="w-full justify-start space-x-2">
               <Library size={16} /> <p>Collection</p>
             </Button>
