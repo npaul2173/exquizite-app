@@ -33,7 +33,7 @@ function HeaderSection() {
       </div>
 
       <div className="flex gap-x-4">
-        <ModeToggle />
+        {/* <ModeToggle /> */}
         <Button variant={"outline"} onClick={() => route.push("/auth/login")}>
           Login
         </Button>
