@@ -60,6 +60,7 @@ module.exports = {
         tighter: "-0.05em", // Example custom spacing
       },
       fontSize: {
+        "text-3xl": "1rem", // Larger size
         "text-5xl": "3rem", // Larger size
         xsm: "0.65rem", // Example custom size
         "text-7xl": "4rem", // Larger size
