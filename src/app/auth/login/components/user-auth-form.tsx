@@ -4,10 +4,11 @@ import * as React from "react";
 
 import { cn } from "@/lib/utils";
 import { Icons } from "@/components/icons";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -51,6 +52,9 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
               autoCorrect="off"
               disabled={isLoading}
             />
+          </div>
+          <div>
+            <Link href="/auth/forgotpassword">Forgot password</Link>
           </div>
           <Button disabled={isLoading}>
             {isLoading && (
