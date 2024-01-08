@@ -1,15 +1,7 @@
 import { SidebarExample } from "@/components/sidebar";
 import { TopBar } from "@/components/topBar";
-
-import { Search } from "./components/search";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-export default function Page() {
+import SearchResult from "./components/searchresult";
+export default function SearchQuizPage() {
   return (
     <div className="flex flex-col w-full min-h-screen">
       <TopBar />
@@ -18,8 +10,8 @@ export default function Page() {
           <div className="bg-background pt-[10px]">
             <div className="grid lg:grid-cols-7 max-w-[400]">
               <SidebarExample className="hidden lg:block" />
-              <div className="col-span-2 lg:col-span-6">
-                <Search />
+              <div className="col-span-2 lg:col-span-6 px-8">
+                <SearchResult />
               </div>
             </div>
           </div>
