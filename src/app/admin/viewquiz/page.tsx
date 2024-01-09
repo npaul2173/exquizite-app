@@ -10,7 +10,7 @@ export default function ViewQuizPage() {
           <div className="bg-background pt-[10px]">
             <div className="grid lg:grid-cols-7 max-w-[400]">
               <SidebarExample className="hidden lg:block" />
-              <div className="col-span-2 lg:col-span-6 px-8">
+              <div className="col-span-2 lg:col-span-6 px-8 flex items-center justify-center">
                 <ViewQuizHeader />
               </div>
             </div>
