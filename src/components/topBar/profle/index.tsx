@@ -28,8 +28,8 @@ export const Profile = () => {
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-[250px] mr-1">
-          <div className="p-3 flex flex-row space-x-4">
+        <DropdownMenuContent className="w-[250px]" align="end">
+          {/* <div className="p-3 flex flex-row space-x-4">
             <Avatar>
               <AvatarImage src="https://npauldev.in/ProfilePictureHD.959b411b.webp" />
               <AvatarFallback>CN</AvatarFallback>
@@ -40,7 +40,22 @@ export const Profile = () => {
                 npaul2173@gmail.com
               </p>
             </div>
-          </div>
+          </div> */}
+          <DropdownMenuLabel className="font-normal">
+            <div className="p-2 flex flex-row space-x-4">
+              <Avatar>
+                <AvatarImage src="https://npauldev.in/ProfilePictureHD.959b411b.webp" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+              <div className="flex flex-col space-y-1">
+                <p className="text-sm font-medium leading-none">shadcn</p>
+                <p className="text-xs leading-none text-muted-foreground">
+                  m@example.com
+                </p>
+              </div>
+            </div>
+          </DropdownMenuLabel>
+
           <DropdownMenuSeparator />
 
           <DropdownMenuLabel>My Account</DropdownMenuLabel>

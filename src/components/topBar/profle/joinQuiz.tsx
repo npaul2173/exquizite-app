@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { ModeToggle } from "@/components/ui/themeToggle";
 
 export function DialogDemo() {
   return (
@@ -17,7 +18,7 @@ export function DialogDemo() {
       <DialogTrigger asChild>
         <Button variant={"outline"}>Join a quiz</Button>
       </DialogTrigger>
-
+      <ModeToggle />
       <DialogContent className="sm:max-w-[425px] pt-[30px]">
         <DialogHeader>
           <DialogTitle>Join quiz</DialogTitle>
