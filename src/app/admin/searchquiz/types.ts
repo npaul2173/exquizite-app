@@ -1,4 +1,4 @@
-interface QuizType {
+export interface QuizType {
   _id: {
     $oid: string;
   };

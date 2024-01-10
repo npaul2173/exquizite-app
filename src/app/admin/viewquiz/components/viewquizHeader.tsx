@@ -28,7 +28,6 @@ export default function ViewQuizHeader() {
             </div>
           </div>
         </CardTitle>
-        {/* <CardDescription>{data[1].description}</CardDescription> */}
       </CardHeader>
       <CardContent>{data[1].description}</CardContent>
       <CardFooter className="flex justify-end space-x-4">

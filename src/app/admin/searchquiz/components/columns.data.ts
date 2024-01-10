@@ -1,3 +1,5 @@
+import { QuizType } from "../types";
+
 export const data: QuizType[] = [
   {
     _id: {
