@@ -12,12 +12,12 @@ import { Button } from "@/components/ui/button";
 
 export default function ViewQuizHeader() {
   return (
-    <Card className=" w-[850px] items-center ">
+    <Card className="items-center rounded-none">
+      <img src={data[1].coverImage} className="h-[150px] w-full rounded-t-lg" />
       <CardHeader>
         <CardTitle>
           <div className="flex justify-between">
-            <div className="flex space-x-4 space-x-4">
-              <img src={data[1].coverImage} className="w-[80px] h-[80px]" />
+            <div className="flex space-x-4">
               <div className="space-y-4">
                 <p style={{ fontSize: "20px" }}>{data[1].topic}</p>
                 <p>{data[1].title}</p>

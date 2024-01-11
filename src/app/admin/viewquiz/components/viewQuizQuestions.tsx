@@ -1,22 +1,23 @@
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { data } from "../../searchquiz/components/columns.data";
-import { CheckCircle2Icon, Circle, Pencil, Timer, Trash } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { QuizQuestionType } from "../types";
+import { CheckCircle2Icon, Circle, List } from "lucide-react";
 import { quizQuestion } from "../data";
 
 export default function ViewQuizQuestion() {
   return (
     <>
+      <div className="flex justify-start space-x-2">
+        <List />
+        <p>{quizQuestion?.length} questions</p>
+      </div>
       {quizQuestion?.map((item, index) => (
-        <Card className=" w-[850px] items-center ">
+        <Card className=" items-center ">
           <CardHeader>
             <CardTitle>
               <div className="flex justify-between items-baseline">
