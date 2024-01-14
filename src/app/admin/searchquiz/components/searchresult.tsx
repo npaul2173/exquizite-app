@@ -43,15 +43,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { data } from "./columns.data";
 
-export type QuizType = {
-  _id: string;
-  coverImage: string;
-  tags: string[];
-  title: string;
-  topic: string;
-  description: string;
-};
-
 export const columns: ColumnDef<QuizType>[] = [
   {
     accessorKey: "coverImage",
