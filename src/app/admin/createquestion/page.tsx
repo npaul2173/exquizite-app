@@ -8,10 +8,15 @@ export default function Page() {
       <main className="pt-[60px]">
         <div className="border-t">
           <div className="bg-background pt-[10px]">
-            <div className="grid lg:grid-cols-7">
-              <SidebarExample className="hidden lg:block" />
-              <div className="grid grid-cols-1 space-y-10 ">
-                <Question />
+            <div className="grid lg:grid-cols-7 bg-black">
+              <SidebarExample className="hidden lg:col-span-1 lg:block bg-red-500" />
+              <div className="lg:col-span-6 flex justify-center items-center bg-amber-300">
+                <div className="grid grid-cols-2 bg-violet-600">
+                  <div className="lg:col-span-6">
+                    <Question />
+                  </div>
+                  <div></div>
+                </div>
               </div>
             </div>
           </div>
